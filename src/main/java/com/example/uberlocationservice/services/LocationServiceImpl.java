@@ -31,7 +31,6 @@ public class LocationServiceImpl implements LocationService {
             );
             return true;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             return false;
         }
     }
@@ -50,14 +49,13 @@ public class LocationServiceImpl implements LocationService {
                         DriverLocationDTO
                                 .builder()
                                 .driverId(result.getContent().getName())
-                                .latitude(result.getContent().getPoint().getX())
-                                .longitude(result.getContent().getPoint().getY())
+                                .latitude(result.getContent().getPoint().getY())
+                                .longitude(result.getContent().getPoint().getX())
                                 .build()
                 );
             }
             return drivers;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             return List.of();
         }
     }
